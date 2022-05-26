@@ -9,14 +9,13 @@
  * @param {ListNode} head
  * @return {number}
  */
+var getDecimalValue = function(head) {
+    let str = '';
 
-// 재귀를 사용한 방법
-var getDecimalValue = function(head, result) {
-    if(!result) result = '';
-
-    result += head.val;
-
-    if(!head.next) return parseInt(result, 2);
-
-    return getDecimalValue(head.next, result);
+    while (head.next !== null) {
+        str += head.val;
+        head = head.next;
+    }
+    str += head.val;
+    return parseInt(str, 2);
 };
